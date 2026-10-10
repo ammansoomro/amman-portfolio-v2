@@ -14,10 +14,9 @@ export const skills: SkillGroup[] = [
     category: "Frontend",
     items: [
       { name: "React", icon: "/logos/react.svg", url: "https://react.dev" },
+      { name: "Next.js", icon: "/logos/nextjs.svg", url: "https://nextjs.org" },
       { name: "Angular", icon: "/logos/angular.svg", url: "https://angular.dev" },
       { name: "TypeScript", icon: "/logos/typescript.svg", url: "https://www.typescriptlang.org" },
-      { name: "JavaScript", icon: "/logos/javascript.svg", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-      { name: "Tailwind CSS", icon: "/logos/tailwind.svg", url: "https://tailwindcss.com" },
     ],
   },
   {
