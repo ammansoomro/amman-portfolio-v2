@@ -5,19 +5,19 @@ import { motion } from "framer-motion";
 const stackedLabels = ["IDEAS", "CODE", "PRODUCTS", "IMPACT"];
 
 const panels = [
-  { x: -90, z: -150, delay: 0.5, opacity: 0.3, tint: "from-accent-violet/15" },
-  { x: -40, z: -75, delay: 0.6, opacity: 0.45, tint: "from-accent/15" },
-  { x: 60, z: -60, delay: 0.7, opacity: 0.4, tint: "from-accent/10" },
-  { x: 110, z: -135, delay: 0.8, opacity: 0.28, tint: "from-accent-violet/10" },
+  { x: -115, z: -190, delay: 0.5, opacity: 0.3, tint: "from-accent-violet/15" },
+  { x: -50, z: -95, delay: 0.6, opacity: 0.45, tint: "from-accent/15" },
+  { x: 76, z: -76, delay: 0.7, opacity: 0.4, tint: "from-accent/10" },
+  { x: 139, z: -171, delay: 0.8, opacity: 0.28, tint: "from-accent-violet/10" },
 ];
 
 export function HeroIsometricGraphic() {
   return (
-    <div className="relative mx-auto h-[440px] w-full max-w-md" style={{ perspective: 1200 }}>
+    <div className="relative mx-auto h-[550px] w-full max-w-xl" style={{ perspective: 1200 }}>
       <motion.div
         animate={{ opacity: [0.5, 0.85, 0.5] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
         style={{
           background:
             "radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%)",
@@ -25,9 +25,9 @@ export function HeroIsometricGraphic() {
       />
 
       <motion.div
-        className="absolute left-1/2 top-1/2 h-[290px] w-[160px] -translate-x-1/2 -translate-y-1/2"
+        className="absolute left-1/2 top-1/2 h-[370px] w-[200px] -translate-x-1/2 -translate-y-1/2"
         style={{ transformStyle: "preserve-3d" }}
-        animate={{ rotateY: [-22, -18, -22], rotateX: [8, 10, 8] }}
+        animate={{ rotateY: [-22, -18, -22], rotateX: [8, 10, 8], y: [0, -10, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       >
         {panels.map((p) => (
@@ -69,11 +69,18 @@ export function HeroIsometricGraphic() {
 
       <motion.div
         initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.05, duration: 0.5 }}
+        animate={{ opacity: 1, y: [0, -6, 0] }}
+        transition={{
+          opacity: { delay: 1.05, duration: 0.5 },
+          y: { delay: 1.5, duration: 5, repeat: Infinity, ease: "easeInOut" },
+        }}
         className="absolute right-0 top-6 flex items-center gap-2 rounded-full border border-border bg-card/90 px-4 py-2.5 text-xs leading-tight text-foreground-secondary shadow-lg backdrop-blur-sm"
       >
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent shadow-[0_0_8px_var(--accent)]" />
+        <motion.span
+          animate={{ opacity: [1, 0.4, 1] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent shadow-[0_0_8px_var(--accent)]"
+        />
         <span>
           Clean Code
           <br />
