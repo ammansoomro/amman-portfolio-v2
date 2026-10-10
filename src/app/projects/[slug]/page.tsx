@@ -97,21 +97,30 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </Reveal>
 
-        {project.images[0] && (
+        {(project.cover ?? project.images[0]) && (
           <Reveal delay={0.15} className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-surface">
-            <Image src={project.images[0]} alt={`${project.title} cover`} fill priority className="object-cover object-top" sizes="100vw" />
+            <Image src={project.cover ?? project.images[0]} alt={`${project.title} cover`} fill priority className="object-cover object-top" sizes="100vw" />
+          </Reveal>
+        )}
+
+        <Reveal className="mt-16 max-w-3xl">
+          <section>
+            <h2 className="text-sm font-mono uppercase tracking-wide text-accent">Overview</h2>
+            <p className="mt-4 text-base leading-relaxed text-foreground-secondary">{project.overview}</p>
+          </section>
+        </Reveal>
+
+        {project.images.length > 1 && (
+          <Reveal className="mt-16">
+            <h2 className="text-sm font-mono uppercase tracking-wide text-accent">Screenshots</h2>
+            <div className="mt-6">
+              <Gallery images={project.images} alt={project.title} />
+            </div>
           </Reveal>
         )}
 
         <div className="mt-16 grid gap-16 md:grid-cols-5">
           <div className="space-y-14 md:col-span-3">
-            <Reveal>
-              <section>
-                <h2 className="text-sm font-mono uppercase tracking-wide text-accent">Overview</h2>
-                <p className="mt-4 text-base leading-relaxed text-foreground-secondary">{project.overview}</p>
-              </section>
-            </Reveal>
-
             <Reveal>
               <section>
                 <h2 className="text-sm font-mono uppercase tracking-wide text-accent">The problem</h2>
@@ -199,14 +208,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
 
-        {project.images.length > 1 && (
-          <Reveal className="mt-20">
-            <h2 className="text-sm font-mono uppercase tracking-wide text-accent">Screenshots</h2>
-            <div className="mt-6">
-              <Gallery images={project.images} alt={project.title} />
-            </div>
-          </Reveal>
-        )}
       </Container>
 
       <div className="mt-24 border-t border-border">

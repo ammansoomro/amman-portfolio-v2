@@ -126,6 +126,7 @@ export const projects: Project[] = [
       { length: 10 },
       (_, i) => `/works/pr-analysis-dashboard/screenshot-${i + 1}.jpg`
     ),
+    cover: "/works/pr-analysis-dashboard/pr-analysis-cover.jpg",
     featured: true,
     overview:
       "Built at Matrix Systems as an in-house monitoring tool, this dashboard pulls pull-request data from GitHub and Bitbucket and turns it into actionable intelligence for engineering leads: defect trends, reviewer load, and collaboration patterns.",
@@ -187,6 +188,7 @@ export const projects: Project[] = [
       "/works/github-defect-marker/screenshot-2.png",
       "/works/github-defect-marker/screenshot-3.png",
     ],
+    cover: "/works/github-defect-marker/defect-marker-cover.jpg",
     featured: true,
     overview:
       "GitHub Defect Marker adds a structured defect-classification workflow directly into GitHub's PR comment box, so review feedback is consistent and machine-readable without reviewers changing how they write comments.",
@@ -253,6 +255,7 @@ export const projects: Project[] = [
       "/works/db-mirror/screenshot-3.png",
       "/works/db-mirror/screenshot-4.png",
     ],
+    cover: "/works/db-mirror/db-mirror-cover.jpg",
     featured: true,
     overview:
       "DB Mirror compares two SQL Server databases — schema and data — through a guided Connect → Databases → Tables → Compare flow, streaming per-table results as they complete instead of blocking on one giant comparison job.",
@@ -308,6 +311,7 @@ export const projects: Project[] = [
     live: "https://jira-logger-landing.vercel.app/",
     chromeStore: "https://chromewebstore.google.com/detail/ihffbbpagemhcgomggjahhpondilabok",
     images: ["/works/jira-quick-logger/screenshot-1.png"],
+    cover: "/works/jira-quick-logger/jira-logger-cover.jpg",
     featured: false,
     overview:
       "A small extension that removes the repetitive part of logging Jira work: Stage of Introduction, Description, and Fix Versions are filled from saved defaults, leaving only Time Spent for the user to type.",
@@ -348,6 +352,7 @@ export const projects: Project[] = [
     code: "https://github.com/ammansoomro/cluedo-companion",
     live: "https://cluedo-companion.vercel.app",
     images: ["/works/cluedo-companion/screenshot-1.png"],
+    cover: "/works/cluedo-companion/cluedo-cover.jpg",
     featured: false,
     overview:
       "Cluedo Companion replaces the paper notes sheet with a live deduction grid: as players mark cards, the board analyzes who can be eliminated and flags the answer once a category narrows to one candidate.",
@@ -390,6 +395,7 @@ export const projects: Project[] = [
       "/works/prompt-o-phobia/screenshot-2.png",
       "/works/prompt-o-phobia/screenshot-3.png",
     ],
+    cover: "/works/prompt-o-phobia/prompt-o-phobia-cover.jpg",
     featured: false,
     overview:
       "Prompt-O-Phobia is a Next.js platform for crafting and sharing structured prompts for AI interaction.",
@@ -425,6 +431,7 @@ export const projects: Project[] = [
       "/works/arcade-vault/screenshot-5.png",
       "/works/arcade-vault/screenshot-6.png",
     ],
+    cover: "/works/arcade-vault/arcade-vault-cover.jpg",
     featured: false,
     overview:
       "Arcade Vault is an experimental gaming e-commerce storefront where users browse and purchase controllers, consoles, games, and headsets.",
@@ -455,6 +462,7 @@ export const projects: Project[] = [
       "/works/moviebase/screenshot-3.png",
       "/works/moviebase/screenshot-4.png",
     ],
+    cover: "/works/moviebase/moviebase-cover.jpg",
     featured: false,
     overview: "Moviebase recreates the YTS browsing experience in React, backed entirely by the public YTS API.",
     problem: "Wanted a cleaner, faster interface for browsing YTS's torrent catalog.",
@@ -482,6 +490,7 @@ export const projects: Project[] = [
       "/works/shadow-sensei/screenshot-4.jpg",
       "/works/shadow-sensei/screenshot-5.jpg",
     ],
+    cover: "/works/shadow-sensei/shadow-sensei-cover.jpg",
     featured: false,
     overview: "Shadow Sensei is a student management system for storing and organizing student and course records.",
     problem: "Needed a straightforward system for tracking students and the courses they're enrolled in.",

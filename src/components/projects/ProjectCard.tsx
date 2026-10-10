@@ -19,7 +19,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <motion.div
         whileHover="hover"
         initial="rest"
-        className="relative aspect-[4/3] overflow-hidden rounded-lg bg-surface"
+        className="relative aspect-video overflow-hidden rounded-lg bg-surface"
       >
         <motion.div
           variants={{ rest: { scale: 1 }, hover: { scale: 1.05 } }}

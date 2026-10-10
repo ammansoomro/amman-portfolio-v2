@@ -19,7 +19,7 @@ export function ProjectCover({ title, logo, cover }: ProjectCoverProps) {
   if (cover) {
     return (
       <div className="absolute inset-0 bg-[#06070c]">
-        <Image src={cover} alt="" fill className="object-contain" sizes="(min-width: 1024px) 33vw, 100vw" />
+        <Image src={cover} alt="" fill className="object-cover" sizes="(min-width: 1024px) 33vw, 100vw" />
       </div>
     );
   }
