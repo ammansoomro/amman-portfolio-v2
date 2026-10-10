@@ -92,13 +92,13 @@ export function HeroCodeCard() {
             {"  "}
             <span className="text-foreground-secondary">name</span>
             <span className="text-foreground-muted">: </span>
-            <span className="text-accent">&quot;Amman Soomro&quot;</span>
+            <span className="text-success">&quot;Amman Soomro&quot;</span>
             <span className="text-foreground-muted">,</span>
             {"\n"}
             {"  "}
             <span className="text-foreground-secondary">role</span>
             <span className="text-foreground-muted">: </span>
-            <span className="text-accent">&quot;{current.role}&quot;</span>
+            <span className="text-success">&quot;{current.role}&quot;</span>
             <span className="text-foreground-muted">,</span>
             {"\n"}
             {"  "}
@@ -106,7 +106,7 @@ export function HeroCodeCard() {
             <span className="text-foreground-muted">: [</span>
             {stack.map((tech, i) => (
               <span key={tech}>
-                <span className="text-accent">&quot;{tech}&quot;</span>
+                <span className="text-success">&quot;{tech}&quot;</span>
                 {i < stack.length - 1 && <span className="text-foreground-muted">, </span>}
               </span>
             ))}
@@ -115,13 +115,13 @@ export function HeroCodeCard() {
             {"  "}
             <span className="text-foreground-secondary">experience</span>
             <span className="text-foreground-muted">: </span>
-            <span className="text-accent">&quot;{stats[0].value} years&quot;</span>
+            <span className="text-success">&quot;{stats[0].value} years&quot;</span>
             <span className="text-foreground-muted">,</span>
             {"\n"}
             {"  "}
             <span className="text-foreground-secondary">ships</span>
             <span className="text-foreground-muted">: </span>
-            <span className="text-accent">&quot;clean, high-performance code&quot;</span>
+            <span className="text-success">&quot;clean, high-performance code&quot;</span>
             <span className="text-foreground-muted">,</span>
             {"\n"}
             <span className="text-foreground-muted">{"};"}</span>
@@ -133,9 +133,9 @@ export function HeroCodeCard() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.05, duration: 0.5 }}
-        className="absolute -bottom-4 right-4 rounded-full border border-border bg-surface px-3 py-1.5 shadow-lg sm:right-6"
+        className="absolute -bottom-5 right-4 rounded-full border border-border bg-card px-5 py-2.5 shadow-lg sm:right-6"
       >
-        <span className="font-mono text-[0.65rem] text-foreground-secondary">
+        <span className="font-mono text-xs font-medium tracking-wide text-success">
           {stats[1].value.toUpperCase()} USERS SERVED · {stats[2].value.toUpperCase()} PROJECTS
         </span>
       </motion.div>

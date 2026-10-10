@@ -312,7 +312,7 @@ export const projects: Project[] = [
     chromeStore: "https://chromewebstore.google.com/detail/ihffbbpagemhcgomggjahhpondilabok",
     images: ["/works/jira-quick-logger/screenshot-1.png"],
     cover: "/works/jira-quick-logger/jira-logger-cover.jpg",
-    featured: false,
+    featured: true,
     overview:
       "A small extension that removes the repetitive part of logging Jira work: Stage of Introduction, Description, and Fix Versions are filled from saved defaults, leaving only Time Spent for the user to type.",
     problem:
@@ -353,7 +353,7 @@ export const projects: Project[] = [
     live: "https://cluedo-companion.vercel.app",
     images: ["/works/cluedo-companion/screenshot-1.png"],
     cover: "/works/cluedo-companion/cluedo-cover.jpg",
-    featured: false,
+    featured: true,
     overview:
       "Cluedo Companion replaces the paper notes sheet with a live deduction grid: as players mark cards, the board analyzes who can be eliminated and flags the answer once a category narrows to one candidate.",
     problem:

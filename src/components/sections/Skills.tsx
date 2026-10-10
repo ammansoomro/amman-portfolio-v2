@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { TechIcon } from "@/components/ui/TechIcon";
 import { Reveal, RevealStagger, revealItem } from "@/components/motion/Reveal";
 import { skills } from "@/data/skills";
 import { motion } from "framer-motion";
@@ -26,21 +26,27 @@ export function Skills() {
 
               <RevealStagger className="mt-5 flex flex-wrap justify-center gap-3" staggerDelay={0.05}>
                 {group.items.map((skill) => (
-                  <motion.div
+                  <motion.a
                     key={skill.name}
+                    href={skill.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variants={revealItem}
                     whileHover={{ y: -3 }}
                     transition={{ duration: 0.2 }}
                     className="group flex items-center gap-2.5 rounded-lg border border-border bg-card px-4 py-3 transition-colors duration-200 hover:border-accent/50"
                   >
-                    <TechIcon
+                    <Image
                       src={skill.icon}
-                      className="h-[18px] w-[18px] shrink-0 text-accent"
+                      alt=""
+                      width={18}
+                      height={18}
+                      className="h-[18px] w-[18px] shrink-0 object-contain"
                     />
                     <span className="text-sm text-foreground-secondary transition-colors duration-200 group-hover:text-foreground">
                       {skill.name}
                     </span>
-                  </motion.div>
+                  </motion.a>
                 ))}
               </RevealStagger>
             </Reveal>
