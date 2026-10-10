@@ -21,9 +21,9 @@ export function HeroCodeCard() {
         className="absolute -top-4 left-6 z-10 flex items-center gap-2.5 rounded-full border border-border bg-surface px-3 py-1.5 shadow-lg"
       >
         <span className="flex gap-1">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent-violet" />
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground-muted/50" />
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground-muted/50" />
+          <span className="h-1.5 w-1.5 rounded-full bg-success" />
         </span>
         <span className="font-mono text-[0.65rem] text-foreground-secondary">
           {roleAbbrev} @ {current.company}
@@ -45,7 +45,7 @@ export function HeroCodeCard() {
 
         <pre className="overflow-x-auto p-5 font-mono text-[0.8rem] leading-relaxed sm:text-sm">
           <code>
-            <span className="text-foreground-muted">const</span>{" "}
+            <span className="text-accent-violet">const</span>{" "}
             <span className="text-foreground">engineer</span>{" "}
             <span className="text-foreground-muted">= {"{"}</span>
             {"\n"}

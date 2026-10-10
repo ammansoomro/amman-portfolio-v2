@@ -47,7 +47,7 @@ export function Hero() {
             variants={item}
             className="mt-6 text-[clamp(2.25rem,4.6vw,4.25rem)] font-medium leading-[1.05] tracking-tight text-foreground"
           >
-            Amman <span className="text-accent">Soomro</span>
+            Amman <span className="text-gradient-accent">Soomro</span>
           </motion.h1>
 
           <motion.p variants={item} className="mt-6 max-w-lg text-base text-foreground-secondary md:text-lg">

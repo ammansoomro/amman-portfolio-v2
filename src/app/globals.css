@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b0b0d;
-  --surface: #111214;
-  --card: #16181b;
-  --border: #1f2327;
+  --background: #05060f;
+  --surface: #0b0d1a;
+  --card: #10121f;
+  --border: #1e2235;
 
-  --foreground: #e5e7eb;
-  --foreground-secondary: #a0a6b2;
-  --foreground-muted: #6b7280;
+  --foreground: #ffffff;
+  --foreground-secondary: #9da7ba;
+  --foreground-muted: #6b7390;
 
-  --accent: #a7f280;
-  --accent-hover: #b9f59b;
-  --accent-foreground: #10130d;
+  --accent: #c7d3ea;
+  --accent-hover: #d8ecf8;
+  --accent-foreground: #05060f;
+  --accent-violet: #a78bfa;
 
   --success: #a7f280;
   --warning: #f59e0b;
@@ -25,13 +26,14 @@
   --card: #ffffff;
   --border: #e5e5e3;
 
-  --foreground: #16181b;
-  --foreground-secondary: #52555c;
-  --foreground-muted: #8a8d94;
+  --foreground: #14172a;
+  --foreground-secondary: #52586b;
+  --foreground-muted: #8a8fa3;
 
-  --accent: #4f9a2e;
-  --accent-hover: #3f7d24;
+  --accent: #3457d5;
+  --accent-hover: #2a46b0;
   --accent-foreground: #ffffff;
+  --accent-violet: #7c5cf0;
 }
 
 @theme inline {
@@ -45,8 +47,10 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-foreground: var(--accent-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent-violet: var(--accent-violet);
+  --color-success: var(--success);
+  --font-sans: var(--font-sans-primary);
+  --font-mono: var(--font-mono-primary);
 }
 
 html {
@@ -56,7 +60,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans-primary), ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -78,6 +82,13 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.text-gradient-accent {
+  background-image: linear-gradient(180deg, var(--accent-hover), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .container-xl {
