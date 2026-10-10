@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
 import { experience } from "@/data/experience";
 import { stats } from "@/data/site";
 
@@ -12,8 +12,40 @@ const roleAbbrev = current.role
   .join("");
 
 export function HeroCodeCard() {
+  const reduceMotion = useReducedMotion();
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+  const springX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+  const rotateX = useTransform(springY, [0, 1], [6, -6]);
+  const rotateY = useTransform(springX, [0, 1], [-6, 6]);
+  const glowX = useTransform(springX, [0, 1], ["0%", "100%"]);
+  const glowY = useTransform(springY, [0, 1], ["0%", "100%"]);
+  const glowBackground = useTransform(
+    [glowX, glowY],
+    ([x, y]) =>
+      `radial-gradient(240px circle at ${x} ${y}, color-mix(in srgb, var(--accent) 15%, transparent), transparent 70%)`
+  );
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (reduceMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width);
+    mouseY.set((e.clientY - rect.top) / rect.height);
+  }
+
+  function handleMouseLeave() {
+    mouseX.set(0.5);
+    mouseY.set(0.5);
+  }
+
   return (
-    <div className="relative mx-auto w-full max-w-lg text-left">
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative mx-auto w-full max-w-lg text-left"
+      style={{ perspective: 1000 }}
+    >
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -34,16 +66,24 @@ export function HeroCodeCard() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-black/20"
+        style={reduceMotion ? undefined : { rotateX, rotateY, transformStyle: "preserve-3d" }}
+        className="relative overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-black/20"
       >
-        <div className="flex items-center gap-1.5 border-b border-border bg-surface px-4 py-2.5">
+        {!reduceMotion && (
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -inset-px opacity-60"
+            style={{ background: glowBackground }}
+          />
+        )}
+        <div className="relative z-10 flex items-center gap-1.5 border-b border-border bg-surface px-4 py-2.5">
           <span className="h-2.5 w-2.5 rounded-full bg-foreground-muted/25" />
           <span className="h-2.5 w-2.5 rounded-full bg-foreground-muted/25" />
           <span className="h-2.5 w-2.5 rounded-full bg-foreground-muted/25" />
           <span className="ml-2 font-mono text-[0.7rem] text-foreground-muted">amman.ts — portfolio</span>
         </div>
 
-        <pre className="overflow-x-auto p-5 font-mono text-[0.8rem] leading-relaxed sm:text-sm">
+        <pre className="relative z-10 overflow-x-auto p-5 font-mono text-[0.8rem] leading-relaxed sm:text-sm">
           <code>
             <span className="text-accent-violet">const</span>{" "}
             <span className="text-foreground">engineer</span>{" "}

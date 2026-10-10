@@ -21,4 +21,5 @@ export const stats = [
   { label: "Years of experience", value: "3+" },
   { label: "Users served in production", value: "2M+" },
   { label: "Freelance projects delivered", value: "50+" },
+  { label: "CGPA · Dean's & Rector's List", value: "3.5" },
 ] as const;

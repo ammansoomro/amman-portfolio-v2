@@ -27,6 +27,26 @@ const item = {
 export function Hero() {
   return (
     <section className="relative flex min-h-screen flex-col items-center overflow-hidden pb-20 pt-32">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--foreground) 1px, transparent 1px), linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          maskImage: "radial-gradient(ellipse 60% 50% at 50% 0%, black, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(ellipse 60% 50% at 50% 0%, black, transparent 80%)",
+        }}
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0.5, 0.8, 0.5] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[760px] -translate-x-1/2"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, color-mix(in srgb, var(--accent-violet) 22%, transparent), transparent 70%)",
+        }}
+      />
       <div className="pointer-events-none absolute inset-0 opacity-70">
         <WaveGraphic className="h-full w-full" />
       </div>
