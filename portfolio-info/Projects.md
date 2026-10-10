@@ -1,5 +1,14 @@
 # Projects
 
+## Tickora
+
+A tracking layer on top of Atlassian Jira — personal and team dashboards, one-click hour logging that writes straight back as a Jira worklog, an RPG-style progression system (XP, levels, ranks from Base Camp to Pinnacle, streaks, achievements), and manager-facing reports, while Jira stays the system of record. Scope is deliberately limited to tracking, updating, logging, monitoring, and reporting — no creation of new Jira issues. The personal dashboard shows today's progress, this week's hours vs. target, and a live player card; My Work gives a cleaner filterable ticket list than Jira's own board; Team and Reports pages surface hours logged, tickets completed, and workload per person, daily/weekly/monthly, exportable to CSV.
+
+**Technologies:** Next.js 16, React 19, TypeScript, Tailwind CSS v4, Radix UI, Motion, TanStack Query, Recharts, MySQL, Prisma, Vitest
+
+**Code:** https://github.com/ammansoomro/tickora
+**Assets:** /works/tickora/screenshot-1.jpg, /works/tickora/screenshot-2.jpg, /works/tickora/screenshot-3.jpg, /works/tickora/screenshot-4.jpg, /works/tickora/screenshot-5.jpg
+
 ## Wealth Deck
 
 A comprehensive full-stack web application for tracking and managing your investment portfolio across multiple asset classes. Built with modern technologies to provide real-time portfolio insights, beautiful visualizations, and intuitive user experience. Features multi-asset tracking including cryptocurrencies (BTC, ETH, SOL, XRP, and more), Pakistan Stock Exchange (PSX) stocks, mutual funds, silver holdings (bars, coins, tola), and VPS (Voluntary Pension Scheme) funds. Includes a real-time portfolio overview with interactive charts, profit/loss tracking, asset breakdown with performance metrics, salary allocation tools, investment calculator, SIP calculator, and automatic crypto price updates via CoinGecko API.

@@ -25,6 +25,85 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "tickora",
+    title: "Tickora",
+    category: "Full Stack",
+    blurb:
+      "A tracking layer on top of Jira — personal dashboards, hour logging, XP/levels, and team reports, with Jira staying the source of truth.",
+    description:
+      "A premium productivity layer on top of Atlassian Jira: personal and team dashboards, one-click hour logging straight to Jira worklogs, an RPG-style progression system (XP, levels, streaks, achievements), and manager-facing reports — without replacing Jira as the system of record.",
+    role: "Solo Developer",
+    timeline: "2026",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Radix UI",
+      "Motion",
+      "TanStack Query",
+      "Recharts",
+      "MySQL",
+      "Prisma",
+      "Vitest",
+    ],
+    code: "https://github.com/ammansoomro/tickora",
+    images: [
+      "/works/tickora/screenshot-1.jpg",
+      "/works/tickora/screenshot-2.jpg",
+      "/works/tickora/screenshot-3.jpg",
+      "/works/tickora/screenshot-4.jpg",
+      "/works/tickora/screenshot-5.jpg",
+    ],
+    cover: "/works/tickora/tickora-cover.jpg",
+    featured: true,
+    overview:
+      "Tickora sits on top of a team's existing Jira instance and turns it into a dashboard people actually want to open: a personal 'player' profile with XP and levels, one-click work logging that writes straight back to Jira, and team/manager reports — all without touching Jira's role as the system of record.",
+    problem:
+      "Jira holds all the data teams need — hours, tickets, sprints, defects — but its own interface makes day-to-day tracking a chore, so logging and status updates lag behind the real work.",
+    solution:
+      "Built a Next.js 16 app that authenticates against Atlassian, pulls tickets, worklogs, and sprint data from the Jira REST API, and re-presents it through a personal dashboard, a 'My Work' ticket list, team and manager reports, and a gamified profile page (XP, levels, streaks, achievements) that turns consistent logging into visible progress — while every write (like logging hours) goes straight back to Jira as the source of truth.",
+    features: [
+      {
+        title: "Personal dashboard",
+        description:
+          "Today's progress, this week's hours vs. target, recent accomplishments, and a live player card (level, XP, streak) in one view.",
+      },
+      {
+        title: "One-click hour logging",
+        description:
+          "A Log Hours dialog that searches Jira tickets by key or summary and writes the worklog straight back to Jira — no context switch required.",
+      },
+      {
+        title: "XP, levels, and achievements",
+        description:
+          "Logging hours, closing tickets, and resolving defects earn XP toward levels and ranks (Base Camp → Pathfinder → Climber → ... → Pinnacle), with a streak tracker and an achievements grid.",
+      },
+      {
+        title: "Team and manager reporting",
+        description:
+          "Daily/weekly/monthly reports showing hours logged, tickets completed, and workload per team member, synced from Jira and exportable to CSV.",
+      },
+      {
+        title: "My Work",
+        description:
+          "A cleaner, filterable view of assigned tickets (status, priority, points, due dates) across projects than Jira's own board.",
+      },
+    ],
+    challenges: [
+      {
+        title: "Staying a layer, not a replacement",
+        description:
+          "The scope deliberately excludes creating new Jira issues — Tickora only tracks, logs, and reports against what already exists in Jira, which shaped every feature decision toward read-plus-worklog rather than full CRUD.",
+      },
+      {
+        title: "Gamification without feeling like a game",
+        description:
+          "The brief called for a 'premium gaming/productivity dashboard' that still reads as enterprise-grade SaaS — XP and levels had to feel like a restrained, data-rich layer on top of a corporate UI, not a mobile game.",
+      },
+    ],
+  },
+  {
     slug: "wealth-deck",
     title: "Wealth Deck",
     category: "Full Stack",
