@@ -52,15 +52,22 @@ export function Hero() {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-      <Container className="relative flex flex-col items-center text-center">
-        <motion.div variants={container} initial="hidden" animate="show" className="flex max-w-2xl flex-col items-center">
+      <Container className="relative flex w-full min-w-0 flex-col items-center text-center">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="flex w-full min-w-0 max-w-2xl flex-col items-center"
+        >
           <motion.p
             variants={item}
-            className="flex items-center gap-4 font-mono text-xs uppercase tracking-[0.25em] text-foreground-secondary"
+            className="flex flex-wrap items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-foreground-secondary sm:gap-4"
           >
-            <span className="h-px w-8 bg-border" />
-            {site.role} · {site.location}
-            <span className="h-px w-8 bg-border" />
+            <span className="hidden h-px w-8 bg-border sm:block" />
+            <span>
+              {site.role} · {site.location}
+            </span>
+            <span className="hidden h-px w-8 bg-border sm:block" />
           </motion.p>
 
           <motion.h1
@@ -110,7 +117,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-20 w-full px-4 sm:mt-24"
+          className="mt-20 w-full min-w-0 px-4 sm:mt-24"
         >
           <HeroCodeCard />
         </motion.div>
