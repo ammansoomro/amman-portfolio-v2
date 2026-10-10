@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- the deck: cards fanned upward -->
+  <rect x="72" y="44" width="112" height="22" rx="11" fill="#6B7280" opacity="0.35"/>
+  <rect x="56" y="66" width="144" height="24" rx="12" fill="#A0A6B2" opacity="0.45"/>
+  <!-- top card with rising wealth line -->
+  <rect x="40" y="92" width="176" height="120" rx="24" fill="#111214" stroke="#1F2327" stroke-width="3"/>
+  <path d="M68 178 L102 148 L128 162 L188 118" stroke="#A7F280" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="188" cy="118" r="11" fill="#A7F280"/>
+</svg>

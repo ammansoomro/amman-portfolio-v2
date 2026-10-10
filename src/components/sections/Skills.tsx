@@ -1,0 +1,51 @@
+"use client";
+
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TechIcon } from "@/components/ui/TechIcon";
+import { Reveal, RevealStagger, revealItem } from "@/components/motion/Reveal";
+import { skills } from "@/data/skills";
+import { motion } from "framer-motion";
+
+export function Skills() {
+  return (
+    <section id="skills" className="scroll-mt-20 border-t border-border py-24 md:py-32">
+      <Container>
+        <SectionHeading label="04 / Toolkit" title="Technologies I work with." />
+
+        <div className="mt-14 space-y-12">
+          {skills.map((group, i) => (
+            <Reveal key={group.category} delay={i * 0.06}>
+              <div className="flex items-baseline gap-4">
+                <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
+                  {group.category}
+                </h3>
+                <span className="h-px flex-1 bg-border" />
+              </div>
+
+              <RevealStagger className="mt-5 flex flex-wrap gap-3" staggerDelay={0.05}>
+                {group.items.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    variants={revealItem}
+                    whileHover={{ y: -3 }}
+                    transition={{ duration: 0.2 }}
+                    className="group flex items-center gap-2.5 rounded-lg border border-border bg-card px-4 py-3 transition-colors duration-200 hover:border-accent/50"
+                  >
+                    <TechIcon
+                      src={skill.icon}
+                      className="h-[18px] w-[18px] shrink-0 text-accent"
+                    />
+                    <span className="text-sm text-foreground-secondary transition-colors duration-200 group-hover:text-foreground">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </RevealStagger>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
