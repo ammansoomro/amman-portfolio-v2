@@ -33,8 +33,8 @@ export function About() {
           ))}
         </RevealStagger>
 
-        <Reveal delay={0.15} className="mt-14 max-w-4xl">
-          <div className="space-y-5 text-base leading-relaxed text-foreground-secondary md:text-lg">
+        <Reveal delay={0.15} className="mt-14 max-w-none text-justify">
+          <div className="space-y-5 text-sm leading-relaxed text-foreground-secondary md:text-base">
             <p>Hi, I&apos;m Amman —</p>
             <p>
               A Software Engineer with{" "}
