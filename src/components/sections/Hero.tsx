@@ -1,17 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Github, Linkedin, Instagram } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { WaveGraphic } from "@/components/motion/WaveGraphic";
-import { HeroCodeCard } from "@/components/sections/HeroCodeCard";
+import { HeroIsometricGraphic } from "@/components/sections/HeroIsometricGraphic";
 import { site } from "@/data/site";
 
-const social = [
-  { label: "GitHub", href: site.github, icon: Github },
-  { label: "LinkedIn", href: site.linkedin, icon: Linkedin },
-  { label: "Instagram", href: site.instagram, icon: Instagram },
+const techStack = [
+  { name: "React", icon: "/logos/react.svg" },
+  { name: "TypeScript", icon: "/logos/typescript.svg" },
+  { name: "Node.js", icon: "/logos/nodejs.svg" },
+  { name: "Java", icon: "/logos/java.svg" },
+  { name: "PostgreSQL", icon: "/logos/postgresql.svg" },
+  { name: "MongoDB", icon: "/logos/mongo.svg" },
+  { name: "Docker", icon: "/logos/docker.svg" },
 ];
 
 const container = {
@@ -26,7 +31,7 @@ const item = {
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center overflow-hidden pb-20 pt-32">
+    <section className="relative overflow-hidden pb-16 pt-32">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
@@ -41,7 +46,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[760px] -translate-x-1/2"
+        className="pointer-events-none absolute right-0 top-0 h-[560px] w-[760px]"
         style={{
           background:
             "radial-gradient(ellipse at center, color-mix(in srgb, var(--accent-violet) 22%, transparent), transparent 70%)",
@@ -50,94 +55,79 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 opacity-70">
         <WaveGraphic className="h-full w-full" />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-      <Container className="relative flex w-full min-w-0 flex-col items-center text-center">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="flex w-full min-w-0 max-w-2xl flex-col items-center"
-        >
-          <motion.p
-            variants={item}
-            className="flex flex-wrap items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-foreground-secondary sm:gap-4"
+      <Container className="relative">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_1fr]">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="flex min-w-0 flex-col items-center text-center lg:items-start lg:text-left"
           >
-            <span className="hidden h-px w-8 bg-border sm:block" />
-            <span>
-              {site.role} · {site.location}
-            </span>
-            <span className="hidden h-px w-8 bg-border sm:block" />
-          </motion.p>
-
-          <motion.h1
-            variants={item}
-            className="mt-6 text-[clamp(2.25rem,4.6vw,4.25rem)] font-medium leading-[1.05] tracking-tight text-foreground"
-          >
-            Amman <span className="text-gradient-accent">Soomro</span>
-          </motion.h1>
-
-          <motion.p variants={item} className="mt-6 max-w-lg text-base text-foreground-secondary md:text-lg">
-            {site.tagline.replace(/code\.$/, "")}
-            <span className="text-accent">code.</span>
-          </motion.p>
-
-          <motion.div variants={item} className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
+            <motion.p
+              variants={item}
+              className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-foreground-secondary"
             >
-              View my work <ArrowRight size={15} />
-            </Link>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent/60 hover:text-accent"
-            >
-              Get in touch
-            </Link>
-          </motion.div>
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              {site.role}
+            </motion.p>
 
-          <motion.div variants={item} className="mt-8 flex items-center gap-3">
-            {social.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground-secondary transition-colors hover:border-accent/60 hover:text-accent"
+            <motion.h1
+              variants={item}
+              className="mt-6 text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-[1.05] tracking-tight text-foreground"
+            >
+              I build scalable
+              <br />
+              <span className="text-gradient-accent">web products.</span>
+            </motion.h1>
+
+            <motion.p variants={item} className="mt-6 max-w-lg text-base text-foreground-secondary md:text-lg">
+              {site.description}
+            </motion.p>
+
+            <motion.div variants={item} className="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+              <Link
+                href="/#projects"
+                className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
               >
-                <s.icon size={16} />
-              </a>
-            ))}
+                View my work <ArrowRight size={15} />
+              </Link>
+              <Link
+                href="/#contact"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent/60 hover:text-accent"
+              >
+                Get in touch <Mail size={15} />
+              </Link>
+            </motion.div>
           </motion.div>
-        </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full min-w-0"
+          >
+            <HeroIsometricGraphic />
+          </motion.div>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-20 w-full min-w-0 px-4 sm:mt-24"
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-20 hidden border-t border-border pt-8 sm:block"
         >
-          <HeroCodeCard />
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-foreground-muted">Tech stack</p>
+          <div className="mt-5 flex flex-wrap items-center gap-x-10 gap-y-5">
+            {techStack.map((t) => (
+              <div key={t.name} className="flex items-center gap-2 text-sm text-foreground-secondary">
+                <Image src={t.icon} alt="" width={18} height={18} className="h-[18px] w-[18px] object-contain" />
+                {t.name}
+              </div>
+            ))}
+          </div>
         </motion.div>
       </Container>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.3, duration: 0.6 }}
-        className="mt-16 hidden md:block"
-      >
-        <Link
-          href="/#about"
-          aria-label="Scroll to About section"
-          className="flex flex-col items-center gap-2 text-foreground-muted transition-colors hover:text-accent"
-        >
-          <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em]">Scroll</span>
-          <ArrowDown size={14} className="animate-bounce" />
-        </Link>
-      </motion.div>
     </section>
   );
 }
