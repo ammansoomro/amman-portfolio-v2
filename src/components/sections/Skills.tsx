@@ -11,19 +11,20 @@ export function Skills() {
   return (
     <section id="skills" className="scroll-mt-20 border-t border-border py-24 md:py-32">
       <Container>
-        <SectionHeading label="04 / Toolkit" title="Technologies I work with." />
+        <SectionHeading label="04 / Toolkit" title="Technologies I work with." align="center" />
 
-        <div className="mt-14 space-y-12">
+        <div className="mx-auto mt-14 max-w-3xl space-y-12">
           {skills.map((group, i) => (
             <Reveal key={group.category} delay={i * 0.06}>
-              <div className="flex items-baseline gap-4">
+              <div className="flex items-center justify-center gap-4">
+                <span className="h-px w-8 bg-border" />
                 <h3 className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
                   {group.category}
                 </h3>
-                <span className="h-px flex-1 bg-border" />
+                <span className="h-px w-8 bg-border" />
               </div>
 
-              <RevealStagger className="mt-5 flex flex-wrap gap-3" staggerDelay={0.05}>
+              <RevealStagger className="mt-5 flex flex-wrap justify-center gap-3" staggerDelay={0.05}>
                 {group.items.map((skill) => (
                   <motion.div
                     key={skill.name}

@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import { Reveal } from "@/components/motion/Reveal";
 
 export function SectionHeading({
@@ -9,11 +10,11 @@ export function SectionHeading({
   label: string;
   title: string;
   description?: string;
-  align?: "left" | "between";
+  align?: "left" | "between" | "center";
 }) {
   return (
     <div className={align === "between" ? "flex flex-wrap items-end justify-between gap-6" : undefined}>
-      <div>
+      <div className={clsx(align === "center" && "mx-auto flex flex-col items-center text-center")}>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{label}</p>
         </Reveal>
@@ -24,7 +25,9 @@ export function SectionHeading({
         </Reveal>
         {description && (
           <Reveal delay={0.14}>
-            <p className="mt-5 max-w-xl text-base text-foreground-secondary">{description}</p>
+            <p className={clsx("mt-5 max-w-xl text-base text-foreground-secondary", align === "center" && "mx-auto")}>
+              {description}
+            </p>
           </Reveal>
         )}
       </div>

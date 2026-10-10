@@ -19,25 +19,21 @@ export function About() {
   return (
     <section id="about" className="scroll-mt-20 border-t border-border py-24 md:py-32">
       <Container>
-        <SectionHeading
-          label="01 / About"
-          title="The engineer behind the screen."
-        />
+        <SectionHeading label="01 / About" title="The engineer behind the screen." align="center" />
 
-        <RevealStagger className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-4" staggerDelay={0.06}>
+        <RevealStagger
+          className="mt-14 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-5 sm:grid-cols-4"
+          staggerDelay={0.06}
+        >
           {stats.map((stat) => (
-            <motion.div
-              key={stat.label}
-              variants={revealItem}
-              className="rounded-xl border border-border bg-card p-5"
-            >
-              <p className="font-mono text-2xl font-medium text-accent sm:text-3xl">{stat.value}</p>
-              <p className="mt-1.5 text-sm text-foreground-secondary">{stat.label}</p>
+            <motion.div key={stat.label} variants={revealItem}>
+              <p className="font-mono text-xl font-medium text-foreground sm:text-2xl">{stat.value}</p>
+              <p className="mt-1 text-sm text-foreground-secondary">{stat.label}</p>
             </motion.div>
           ))}
         </RevealStagger>
 
-        <Reveal delay={0.15} className="mt-14 max-w-3xl">
+        <Reveal delay={0.15} className="mt-14 max-w-4xl">
           <div className="space-y-5 text-base leading-relaxed text-foreground-secondary md:text-lg">
             <p>Hi, I&apos;m Amman —</p>
             <p>
